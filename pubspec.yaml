@@ -15,7 +15,7 @@ dependencies:
   adhan: ^2.0.0
   flutter_local_notifications: ^17.2.3
   timezone: ^0.9.4
-  geolocator: ^9.4.0
+  geolocator: ^10.1.0
   geocoding: ^3.0.0
   audioplayers: ^5.2.1
   flutter_riverpod: ^2.5.1
