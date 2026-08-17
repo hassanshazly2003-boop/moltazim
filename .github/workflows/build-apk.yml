@@ -9,26 +9,25 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      
+
       - name: Set up Java 17
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-version: '17'
-      
+
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
           flutter-version: '3.24.3'
           channel: 'stable'
-      
+
       - name: Get Flutter packages
         run: flutter pub get
-      
-      --اسم: إنشاء ملف APK
-  يجري: flutter build apk --release -t lib/main.dart
-        
-      
+
+      - name: Build APK
+        run: flutter build apk --release -t lib/main.dart
+
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
