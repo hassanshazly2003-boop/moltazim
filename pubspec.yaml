@@ -1,24 +1,36 @@
-name: moltazim
-description: تطبيق ملتزم - يستخدم للورد والصلاة والاذكار
+name: moltazem
+description: A new Flutter project.
 publish_to: 'none'
-version: 1.0.0+3
+version: 1.0.0+1
 
 environment:
-  sdk: ">=3.0.0 <4.0.0"
+  sdk: '>=3.3.0 <4.0.0'
 
 dependencies:
   flutter:
     sdk: flutter
-  shared_preferences: ^2.5.3
+  cupertino_icons: ^1.0.8
+  shared_preferences: ^2.2.3
+  intl: ^0.19.0
+  adhan: ^2.0.0
+  flutter_local_notifications: ^17.2.3
+  timezone: ^0.9.4
+  geolocator: ^11.0.0
+  geocoding: ^3.0.0
+  audioplayers: ^5.2.1
+  flutter_riverpod: ^2.5.1
+  flutter_animate: ^4.5.0
+  http: ^1.2.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^5.0.0
+  flutter_lints: ^3.0.2
 
 flutter:
   uses-material-design: true
+  
   assets:
-    - quran.json
-    - qurantext-uthmani.source.def
-    - logo.jpg
+    - أصول/logo.jpg
+    - أصول/القرآن/quran.json
+    - أصول/القرآن/qurantext-uthmani.source.def
