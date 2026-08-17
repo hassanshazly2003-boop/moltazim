@@ -25,8 +25,9 @@ jobs:
       - name: Get Flutter packages
         run: flutter pub get
       
-      - name: Build APK
-        run: flutter build apk --release
+      --اسم: إنشاء ملف APK
+  يجري: flutter build apk --release -t lib/main.dart
+        
       
       - name: Upload APK
         uses: actions/upload-artifact@v4
