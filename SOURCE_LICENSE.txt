@@ -1,0 +1,15 @@
+ملتزم - مصدر نص القرآن المحلي
+
+Arabic Quran Uthmani text source:
+quran LaTeX package, qurantext-uthmani.def
+Copyright © 2015-2024 Seiied-Mohammad-Javad Razavian
+License: LaTeX Project Public License (LPPL), version 1.3c or later.
+
+The original source file is preserved in this folder as:
+qurantext-uthmani.source.def
+
+The generated quran.json is a machine-readable derived representation used by the Flutter application.
+For production distribution, retain this attribution and review the applicable LPPL terms.
+
+For an alternative Quran source specifically intended for web/application embedding, Tanzil Project states that its verified Uthmani text may be used in applications with attribution and a link to tanzil.net. See:
+https://tanzil.net/docs/Text_License
