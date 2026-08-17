@@ -22,25 +22,20 @@ jobs:
           flutter-version: '3.24.3'
           channel: 'stable'
 
-      - name: Create New Flutter Project
-        run: flutter create moltazim_app
-
-      - name: Copy your code
-        run: |
-          cp -r lib moltazim_app/
-          cp pubspec.yaml moltazim_app/
+      - name: Fix Project
+        run: flutter create . --platforms=android,ios
 
       - name: Get Flutter packages
-        run: cd moltazim_app && flutter pub get
+        run: flutter pub get
 
-      - name: Build APK Android
-        run: cd moltazim_app && flutter build apk --release
+      - name: Build APK
+        run: flutter build apk --release
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: moltazem-android-apk
-          path: moltazim_app/build/app/outputs/flutter-apk/app-release.apk
+          path: build/app/outputs/flutter-apk/app-release.apk
 
   build-ios:
     runs-on: macos-latest
@@ -54,22 +49,17 @@ jobs:
           flutter-version: '3.24.3'
           channel: 'stable'
 
-      - name: Create New Flutter Project
-        run: flutter create moltazim_app
-
-      - name: Copy your code
-        run: |
-          cp -r lib moltazim_app/
-          cp pubspec.yaml moltazim_app/
+      - name: Fix Project
+        run: flutter create . --platforms=android,ios
 
       - name: Get Flutter packages
-        run: cd moltazim_app && flutter pub get
+        run: flutter pub get
 
       - name: Build iOS
-        run: cd moltazim_app && flutter build ipa --release --no-codesign
+        run: flutter build ipa --release --no-codesign
 
       - name: Upload IPA
         uses: actions/upload-artifact@v4
         with:
           name: moltazem-ios-ipa
-          path: moltazim_app/build/ios/ipa/*.ipa
+          path: build/ios/ipa/*.ipa
