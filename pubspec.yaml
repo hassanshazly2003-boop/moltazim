@@ -19,7 +19,6 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   assets:
-    - assets/logo.jpg
-    - assets/quran/quran.json
-    - assets/quran/SOURCE_LICENSE.txt
+    - quran.json
     - qurantext-uthmani.source.def
+    - assets/logo.jpg
