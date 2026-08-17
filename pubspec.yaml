@@ -21,4 +21,4 @@ flutter:
   assets:
     - quran.json
     - qurantext-uthmani.source.def
-    - assets/logo.jpg
+    - logo.jpg
