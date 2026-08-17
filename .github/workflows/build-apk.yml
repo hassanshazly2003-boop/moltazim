@@ -1,10 +1,10 @@
-name: Build APK
+name: Build Android and iOS
 
 on:
   workflow_dispatch:
 
 jobs:
-  build:
+  build-android:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -22,17 +22,54 @@ jobs:
           flutter-version: '3.24.3'
           channel: 'stable'
 
-      - name: Get Flutter packages
-        run: flutter pub get
+      - name: Create New Flutter Project
+        run: flutter create moltazim_app
 
-      - name: Build APK
+      - name: Copy your code
         run: |
-          flutter clean
-          flutter pub get
-          flutter build apk --release
+          cp -r lib moltazim_app/
+          cp pubspec.yaml moltazim_app/
+
+      - name: Get Flutter packages
+        run: cd moltazim_app && flutter pub get
+
+      - name: Build APK Android
+        run: cd moltazim_app && flutter build apk --release
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: moltazem-release-apk
-          path: build/app/outputs/flutter-apk/app-release.apk
+          name: moltazem-android-apk
+          path: moltazim_app/build/app/outputs/flutter-apk/app-release.apk
+
+  build-ios:
+    runs-on: macos-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.24.3'
+          channel: 'stable'
+
+      - name: Create New Flutter Project
+        run: flutter create moltazim_app
+
+      - name: Copy your code
+        run: |
+          cp -r lib moltazim_app/
+          cp pubspec.yaml moltazim_app/
+
+      - name: Get Flutter packages
+        run: cd moltazim_app && flutter pub get
+
+      - name: Build iOS
+        run: cd moltazim_app && flutter build ipa --release --no-codesign
+
+      - name: Upload IPA
+        uses: actions/upload-artifact@v4
+        with:
+          name: moltazem-ios-ipa
+          path: moltazim_app/build/ios/ipa/*.ipa
